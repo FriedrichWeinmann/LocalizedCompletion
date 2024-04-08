@@ -1,4 +1,25 @@
 ﻿function Set-LCLanguage {
+	<#
+	.SYNOPSIS
+		Sets the language completed for.
+	
+	.DESCRIPTION
+		Sets the language completed for.
+	
+	.PARAMETER Language
+		The language to use for completion.
+		Must be a language code such as "en-us" or "de-de".
+	
+	.PARAMETER DefaultLanugage
+		What language should be used as the default language.
+		Must be a language code such as "en-us" or "de-de".
+	
+	.EXAMPLE
+		PS C:\> Set-LCLanguage -Language de-de
+
+		Changes the current completion language to German.
+	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
 	[CmdletBinding()]
 	param (
 		[ValidateScript({

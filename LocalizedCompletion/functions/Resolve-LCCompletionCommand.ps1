@@ -1,4 +1,24 @@
 ﻿function Resolve-LCCompletionCommand {
+	<#
+	.SYNOPSIS
+		Resolves the command being completed for.
+	
+	.DESCRIPTION
+		Resolves the command being completed for.
+		Used internally to aid in determining the matching localization to provide.
+	
+	.PARAMETER Code
+		The line of code for which completion has been triggered.
+	
+	.PARAMETER Position
+		The position within the code where the cursor is at.
+	
+	.EXAMPLE
+		PS C:\> Resolve-LCCompletionCommand -Code $code -Position $index
+		
+		Resolves the command being completed for.
+	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSReviewUnusedParameter", "")]
 	[CmdletBinding()]
 	param (
 		[string]
