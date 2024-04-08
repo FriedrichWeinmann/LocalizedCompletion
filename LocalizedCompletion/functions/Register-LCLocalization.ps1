@@ -38,7 +38,7 @@
 		Each of these three should then contain a hashtable mapping language-code to text.
 	
 	.PARAMETER LoadHelp
-		NOT YET IMPLEMENTED	
+		NOT YET IMPLEMENTED
 		Whether the command help should be loaded and cached to the entry.
 		This would then be used to provide automatic Tooltip content.
 	
