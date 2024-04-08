@@ -39,9 +39,11 @@
 				<#inputScript#>  $inputScript,
 				<#cursorColumn#> $cursorColumn,
 				<#options#>      $options)
-			if (-not $global:__compl) {
-				$global:__compl = $result
-				$global:__param = $PSBoundParameters
+
+			# Debugging Data
+			if (-not $global:__lc_compl) {
+				$global:__lc_compl = $result
+				$global:__lc_param = $PSBoundParameters
 			}
 			ConvertTo-LocalizedCompletion -Completion $result -Code $inputScript -Offset $cursorColumn
 		}

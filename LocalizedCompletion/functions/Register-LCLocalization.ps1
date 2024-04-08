@@ -1,4 +1,52 @@
 ﻿function Register-LCLocalization {
+	<#
+	.SYNOPSIS
+		Registers localization data for tab completion.
+	
+	.DESCRIPTION
+		Registers localization data for tab completion.
+	
+	.PARAMETER CommandName
+		Name of the command to complete.
+	
+	.PARAMETER Tooltip
+		Tooltip that should be shown when completing the command.
+	
+	.PARAMETER Alias
+		Alternative command name that should be completed to.
+		No alias will actually be created - be sure the new name actually exists.
+	
+	.PARAMETER ListItem
+		Alternative command name to display in a completion menu.
+	
+	.PARAMETER ParameterName
+		Name of the parameter to localized for completion.
+	
+	.PARAMETER ParameterAlias
+		Alternative name of the parameter to complete to.
+		This alias is not actually added to the parameter, so be sure it actually exists on the actual command before assigning it here.
+	
+	.PARAMETER ParameterListItem
+		Alternative parameter name to show during a completion menu.
+	
+	.PARAMETER ParameterTooltip
+		Tooltip for the parameter to show during completion.
+	
+	.PARAMETER ParameterHash
+		A set of parameters to update in bulk.
+		Each key is a parameter name, each value a hashtable with the keys Alias, ListItem and Tooltip.
+		Each of these three should then contain a hashtable mapping language-code to text.
+	
+	.PARAMETER LoadHelp
+		NOT YET IMPLEMENTED
+		Whether the command help should be loaded and cached to the entry.
+		This would then be used to provide automatic Tooltip content.
+	
+	.EXAMPLE
+		PS C:\> Register-LCLocalization -CommandName Get-ChildItem -ListItem @{ 'de-de' = 'Lese-Kindobjekte' } -Alias @{ 'de-de' = 'Lese-KindObjekt' } -Tooltip @{ 'de-de' = 'Macht seltsame Dinge' }
+
+		Provides localized completion for Get-ChildItem in German
+	#>
 	[CmdletBinding(DefaultParameterSetName = 'default')]
 	param (
 		[Parameter(Mandatory = $true)]
@@ -40,6 +88,7 @@
 	begin {
 		#region Functions
 		function Update-Parameter {
+			[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
 			[CmdletBinding()]
 			param (
 				[hashtable]

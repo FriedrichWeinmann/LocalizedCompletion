@@ -1,4 +1,28 @@
 ﻿function ConvertTo-LocalizedCompletion {
+	<#
+	.SYNOPSIS
+		Converts a completion result into a localized version of itself.
+	
+	.DESCRIPTION
+		Converts a completion result into a localized version of itself.
+		Use Register-LCLocalization to provide localization values.
+
+		For internal use and troubleshooting.
+	
+	.PARAMETER Completion
+		The completion result provided by the PowerShell engine.
+	
+	.PARAMETER Code
+		The line of code that is being completed for.
+	
+	.PARAMETER Offset
+		Where in the line of code the cursor is.
+	
+	.EXAMPLE
+		PS C:\> ConvertTo-LocalizedCompletion -Completion $ompletion -Code $code -Offset $offset
+
+		Converts a completion result into a localized version of itself.
+	#>
 	[OutputType([System.Management.Automation.CommandCompletion])]
 	[CmdletBinding()]
 	param (
