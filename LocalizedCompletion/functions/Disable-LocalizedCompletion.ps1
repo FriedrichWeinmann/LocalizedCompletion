@@ -15,6 +15,6 @@
 	[CmdletBinding()]
 	param ()
 	process {
-		& "$script:ModuleRoot\internal\expander\TabExpansion2.ps1"
+		& "$script:ModuleRoot\expander\TabExpansion2.ps1"
 	}
 }
